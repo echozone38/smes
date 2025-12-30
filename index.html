@@ -6,21 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Směs do porcí</title>
   <link rel="manifest" href="manifest.json">
-  
-<style>
-  :root{
-    --bg:#071614; --text:#e6f4f1; --card:#0c201d; --card-border:#12312b;
-    --field-bg:#0a1d1a; --field-border:#1b4039; --accent:#0f766e; --accent-2:#1f5c54;
-    --heading:#d0f0ea; --label:#7bd3c8;
-  }
-  html,body{background:var(--bg);color:var(--text)}
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;margin:0;padding:2rem;}
-  h1,h2,h3,h4{color:var(--heading);margin:0 0 .75rem}
-  table{width:100%;border-collapse:collapse;margin-top:.5rem}
-  th,td{border:1px solid var(--card-border);padding:.5rem;text-align:left}
-  th{background:rgba(11,49,43,.65);color:var(--label)}
-  .btn{background:var(--accent);color:#fff;border:none;border-radius:.5rem;padding:.4rem .7rem}
-</style>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:#0b1020;color:#e5e7eb;margin:0;padding:2rem;}
+    h1,h2,h3{color:#e5e7eb;margin:0 0 .75rem}
+    .card{background:#111827;border:1px solid #1f2937;border-radius:.75rem;padding:1rem;margin-bottom:1rem}
+    label{display:block;margin:.25rem 0 .25rem;color:#93c5fd}
+    input[type="number"]{width:100%;padding:.5rem;border-radius:.5rem;border:1px solid #374151;background:#0f172a;color:#e5e7eb}
+    table{width:100%;border-collapse:collapse;margin-top:.5rem}
+    th,td{border:1px solid #1f2937;padding:.5rem;text-align:left}
+    th{background:#0f172a;color:#93c5fd}
+    .btns{display:flex;gap:.5rem;margin-top:.5rem}
+    button{background:#0f766e;color:white;border:none;border-radius:.5rem;padding:.5rem .75rem;cursor:pointer}
+    button.secondary{background:#374151}
+  </style>
 </head>
 <body>
   <h1>Směs do porcí</h1>
