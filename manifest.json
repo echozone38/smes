@@ -1,14 +1,22 @@
 {
-  "name": "Porce ze směsi (Kája, Máša, Fanda, Tóňa)",
-  "short_name": "Porce",
-  "description": "PWA pro rozdělení směsi F1 na porce podle podílů (Kája, Máša, Fanda, Tóňa)",
+  "name": "Směs do porcí",
+  "short_name": "Směs do porcí",
+  "description": "PWA pro rozdělení směsi na porce podle podílů",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0b1020",
   "theme_color": "#0f766e",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
