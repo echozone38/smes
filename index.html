@@ -54,22 +54,22 @@
           <tr>
             <td><strong>Kája</strong></td>
             <td><input id="F3" type="number" readonly class="pill"/></td>
-            <td><input id="F4" type="number" step="0.01" class="pill" placeholder="100"/></td>
+            <td><input id="F4" type="number" step="0.01" class="pill" value="100"/></td>
           </tr>
           <tr>
             <td><strong>Máša</strong></td>
             <td><input id="G3" type="number" readonly class="pill"/></td>
-            <td><input id="G4" type="number" step="0.01" class="pill" placeholder="80"/></td>
+            <td><input id="G4" type="number" step="0.01" class="pill" value="80"/></td>
           </tr>
           <tr>
             <td><strong>Fanda</strong></td>
             <td><input id="H3" type="number" readonly class="pill"/></td>
-            <td><input id="H4" type="number" step="0.01" class="pill" placeholder="45"/></td>
+            <td><input id="H4" type="number" step="0.01" class="pill" value="45"/></td>
           </tr>
           <tr>
             <td><strong>Tóňa</strong></td>
             <td><input id="I3" type="number" readonly class="pill"/></td>
-            <td><input id="I4" type="number" step="0.01" class="pill" placeholder="35"/></td>
+            <td><input id="I4" type="number" step="0.01" class="pill" value="35"/></td>
           </tr>
         </tbody>
       </table>
@@ -100,12 +100,17 @@
       document.getElementById(id).addEventListener('input', compute);
     });
     document.getElementById('reset').addEventListener('click', () => {
-      ['F1','F4','G4','H4','I4'].forEach(id => document.getElementById(id).value = '');
+      // Reset F1 a ponechat výchozí podíly
+      document.getElementById('F1').value = '';
+      document.getElementById('F4').value = '100';
+      document.getElementById('G4').value = '80';
+      document.getElementById('H4').value = '45';
+      document.getElementById('I4').value = '35';
       ['F3','G3','H3','I3'].forEach(id => document.getElementById(id).value = 0);
     });
 
-    // První výpočet po načtení, pokud jsou placeholdery vyplněny uživatelem
-    compute();
+    // Spočítat hned po načtení s výchozími podíly
+    window.addEventListener('DOMContentLoaded', compute);
   </script>
 
   <script>
