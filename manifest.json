@@ -1,14 +1,1 @@
-{
-  "name": "Kalkulačka porcí",
-  "short_name": "Porce",
-  "description": "PWA kalkulačka pro výpočet reálné porce ze syrové porce a hotové směsi.",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#0f766e",
-  "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
-  ]
-}
+name Kalkulačka porcí short\_name Porce description PWA kalkulačka pro výpočet reálné porce ze syrové porce a hotové směsi. start\_url ./ scope ./ display standalone background\_color \#0b1020 theme\_color \#0f766e icons src icons/icon\-192.png sizes 192x192 type image/png src icons/icon\-512.png sizes 512x512 type image/png 

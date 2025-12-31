@@ -1,140 +1,56 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Směs do porcí</title>
-  <link rel="manifest" href="./manifest.json">
-  <style>
-    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', Arial; margin: 24px;}
-    h1,h2,h3{margin:0 0 12px}
-    table{border-collapse:collapse; width:100%; max-width:680px}
-    th,td{border:1px solid #ddd; padding:8px; text-align:left}
-    .inputs{display:flex; gap:12px; flex-wrap:wrap; margin:12px 0}
-    .inputs label{display:block; font-weight:600}
-    .inputs input{padding:6px 8px; width:160px}
-    .actions{margin:8px 0}
-    button{padding:8px 12px}
-  </style>
-</head>
-<body>
 
 # Směs do porcí
 ## Směs do porcí
-
 ### Vstupy
-<div class="inputs">
-  <div>
-    <label for="F1">Směs (F1)</label>
-    <input id="F1" type="number" step="0.01" placeholder="např. 1000" />
-  </div>
-  <div>
-    <label for="F4">Podíl F4 (Kája)</label>
-    <input id="F4" type="number" step="0.01" placeholder="39.3" />
-  </div>
-  <div>
-    <label for="G4">Podíl G4 (Máša)</label>
-    <input id="G4" type="number" step="0.01" placeholder="22.9" />
-  </div>
-  <div>
-    <label for="H4">Podíl H4 (Fanda)</label>
-    <input id="H4" type="number" step="0.01" placeholder="21.3" />
-  </div>
-  <div>
-    <label for="I4">Podíl I4 (Tóňa)</label>
-    <input id="I4" type="number" step="0.01" placeholder="16.5" />
-  </div>
-</div>
-<div class="actions">
-  <button id="spocitat">Spočítat</button>
-  <button id="reset">Reset</button>
-</div>
-
+ 
+Směs 
+Reset 
 #### Porce a podíly
 <table>
 <tr>
-  <th>Osoba</th>
-  <th>Porce</th>
-  <th>Podíly</th>
+<th> 
+Osoba
+</th>
+ 
+ <th>Porce
+</th>
+ <th>Podíly
+</th>
+ </tr>
+<tr>
+<td> 
+Kája
+</td>
+ <td> 
+</td>
+<td> 
+</td>
 </tr>
 <tr>
-  <td>Kája</td>
-  <td><span id="out-F3">0</span></td>
-  <td><span id="out-F4">0</span></td>
+<td> 
+Máša
+</td>
+ <td> 
+</td>
+<td> 
+</td>
 </tr>
 <tr>
-  <td>Máša</td>
-  <td><span id="out-G3">0</span></td>
-  <td><span id="out-G4">0</span></td>
+<td> 
+Fanda
+</td>
+ <td> 
+</td>
+<td> 
+</td>
 </tr>
 <tr>
-  <td>Fanda</td>
-  <td><span id="out-H3">0</span></td>
-  <td><span id="out-H4">0</span></td>
-</tr>
-<tr>
-  <td>Tóňa</td>
-  <td><span id="out-I3">0</span></td>
-  <td><span id="out-I4">0</span></td>
-</tr>
-<tr>
-  <td>Součet</td>
-  <td><span id="out-soucet">0</span></td>
-  <td><span id="out-soucet-podilu">0</span></td>
+<td> 
+Tóňa
+</td>
+ <td> 
+</td>
+<td> 
+</td>
 </tr>
 </table>
-
-<script>
-  function num(id){ return Number(document.getElementById(id).value || 0); }
-  function out(id, val){ document.getElementById(id).textContent = Number.isFinite(val) ? val.toFixed(2) : '—'; }
-
-  function compute(){
-    const F1 = num('F1');
-    const F4 = num('F4');
-    const G4 = num('G4');
-    const H4 = num('H4');
-    const I4 = num('I4');
-
-    const sumShares = F4 + G4 + H4 + I4;
-    const base = sumShares > 0 ? F1 / sumShares : 0; // F1/(F4+G4+H4+I4)
-
-    const F3 = base * F4; // Kája
-    const G3 = base * G4; // Máša
-    const H3 = base * H4; // Fanda
-    const I3 = base * I4; // Tóňa
-
-    out('out-F3', F3);
-    out('out-G3', G3);
-    out('out-H3', H3);
-    out('out-I3', I3);
-
-    out('out-F4', F4);
-    out('out-G4', G4);
-    out('out-H4', H4);
-    out('out-I4', I4);
-
-    out('out-soucet', F3 + G3 + H3 + I3);
-    out('out-soucet-podilu', sumShares);
-  }
-
-  document.getElementById('spocitat').addEventListener('click', compute);
-  document.getElementById('reset').addEventListener('click', () => {
-    ['F1','F4','G4','H4','I4'].forEach(id => document.getElementById(id).value = '');
-    ['out-F3','out-G3','out-H3','out-I3','out-soucet','out-F4','out-G4','out-H4','out-I4','out-soucet-podilu']
-      .forEach(id => document.getElementById(id).textContent = '0');
-  });
-
-  // Volitelně: automaticky přepočítávat při změně vstupů (nezmění design ani názvy)
-  ['F1','F4','G4','H4','I4'].forEach(id => document.getElementById(id).addEventListener('input', compute));
-</script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js').catch(console.error);
-    });
-  }
-</script>
-
-</body>
-</html>
